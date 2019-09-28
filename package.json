@@ -1,10 +1,10 @@
 {
-  "name": "movie-it",
+  "name": "nodejs-product-api",
   "version": "1.0.0",
   "description": "CRUD sample using inversify-express and mongodb",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha -r ts-node/register tests/**/*.spec.ts --exit",
+    "test": "NODE_ENV=test mocha --timeout 0 -r ts-node/register tests/**/*.test.ts --exit",
     "start": "NODE_ENV=local nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
     "update": "updates --update --minor && npm install",
     "postupdate": "git diff-files --quiet package-lock.json || npm test"
@@ -35,6 +35,7 @@
     "@types/morgan": "1.7.37",
     "@types/mongoose": "~5.5.0",
     "mongodb-memory-server-core": "~5.1.0",
+    "@types/lodash": "4.14.123",
     "chai": "4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "6.2.0",

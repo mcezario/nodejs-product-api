@@ -3,6 +3,9 @@ import { config } from 'node-config-ts';
 import MongoMemoryServer from "mongodb-memory-server-core/lib/MongoMemoryServer";
 
 export class DbConnection {
+
+    static mongod: MongoMemoryServer;
+
     public static async initConnection() {
         let connectionString: string = `mongodb://${config.mongodb.host}:${config.mongodb.port}/${config.mongodb.database}`;
         await DbConnection.connect(connectionString);
@@ -12,7 +15,7 @@ export class DbConnection {
 
         if (process.env.NODE_ENV == "test") {
 
-            let mongod: MongoMemoryServer = new MongoMemoryServer({
+            DbConnection.mongod = new MongoMemoryServer({
                 instance: {
                     ip: config.mongodb.host,
                     port: parseInt(config.mongodb.port),
@@ -21,7 +24,7 @@ export class DbConnection {
             });
 
             // ensures MongoMemoryServer is up
-            await mongod.getUri();
+            await DbConnection.mongod.getUri();
         }
 
         return mongoose.connect(
@@ -43,5 +46,8 @@ export class DbConnection {
 
     public static async disconnect() {
        await mongoose.connection.close();
+       if (DbConnection.mongod != null) {
+            DbConnection.mongod.stop();
+       }
     }
 }

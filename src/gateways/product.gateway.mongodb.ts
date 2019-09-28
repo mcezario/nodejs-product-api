@@ -17,7 +17,7 @@ export class ProductMongoGateway implements IProductGateway {
             })
             .catch((error: Error) => {
 
-                if ((error as MongoError).code === 11000) {
+                if (error instanceof MongoError) {
                     throw new ProductDuplicatedException();
                 }
 
@@ -65,7 +65,7 @@ export class ProductMongoGateway implements IProductGateway {
     }
 
     public delete(code: string): Promise<void> {
-        return Product.findOneAndDelete({_id: code})
+        return Product.findOneAndDelete({code: code})
             .then(() => {
                 //
             })
