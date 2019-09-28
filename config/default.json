@@ -1,5 +1,5 @@
 {
-    "app": "movie",
+    "app": "products",
     "port": "8080",
     "mongodb": {
         "host": "localhost",
