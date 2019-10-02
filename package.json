@@ -36,6 +36,7 @@
     "@types/mongoose": "~5.5.0",
     "mongodb-memory-server-core": "~5.1.0",
     "@types/lodash": "4.14.123",
+    "ts-mockito": "^2.3.1",
     "chai": "4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "6.2.0",
