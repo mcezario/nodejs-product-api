@@ -1,0 +1,34 @@
+[
+    {
+        "code" : "P-001",
+        "name" : "Product 01",
+        "price" : 2.22,
+        "quantity" : 2,
+        "active" : true,
+        "dateCreation" : "2019-09-07T19:23:13.116Z"
+    },
+    {
+        "code" : "P-002",
+        "name" : "Product 02",
+        "price" : 87.90,
+        "quantity" : 99,
+        "active" : true,
+        "dateCreation" : "2019-09-27T19:23:13.116Z"
+    },
+    {
+        "code" : "P-003",
+        "name" : "Product 03",
+        "price" : 213.99,
+        "quantity" : 1,
+        "active" : true,
+        "dateCreation" : "2019-09-17T19:23:13.116Z"
+    },
+    {
+        "code" : "P-004",
+        "name" : "Product 04",
+        "price" : 9.99,
+        "quantity" : 1,
+        "active" : false,
+        "dateCreation" : "2019-08-17T19:23:13.116Z"
+    }
+]

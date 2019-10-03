@@ -17,7 +17,7 @@ export class ProductMongoGateway implements IProductGateway {
             })
             .catch((error: Error) => {
 
-                if (error instanceof MongoError) {
+                if ((error as MongoError).code == 11000) {
                     throw new ProductDuplicatedException();
                 }
 

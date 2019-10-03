@@ -1,5 +1,6 @@
 import { inject, injectable } from 'inversify';
 import 'reflect-metadata';
+import { defaultTo } from "lodash";
 import { IProduct } from '../domains/product';
 import { IProductGateway } from '../gateways/product.gateway'
 import { ProductMongoGateway } from '../gateways/product.gateway.mongodb'
@@ -27,7 +28,8 @@ export class ProductService {
         .catch((err: Error) => {
           
           console.error("Error to create the product.", err);
-          if ((err as ProductDuplicatedException).stack != undefined) {
+          
+          if (err instanceof ProductDuplicatedException) {
             throw new BusinessException("C-001", "The product has already been registered.");
           }
 
@@ -47,7 +49,7 @@ export class ProductService {
         .catch((err: Error) => {
           
           console.error("Error to update the product.", err);
-          if ((err as ProductNotFoundException).stack != undefined) {
+          if (err instanceof ProductNotFoundException) {
             throw new BusinessException("U-001", "Product not found.");
           }
           
@@ -59,7 +61,7 @@ export class ProductService {
     public async getAll(): Promise<IProduct[]> {
       return this.gateway.findAll()
       .then((data: IProduct[]) => {
-        return data;
+        return defaultTo(data, []).filter((p) => p.active == true);
       })
       .catch((err) => {
         throw new BusinessException("R-001", "Error to get the product list.");

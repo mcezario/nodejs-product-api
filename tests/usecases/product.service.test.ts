@@ -87,13 +87,13 @@ describe("Unit test to cover Product UC.", async () => {
         verify(gateway.findByCode(product.code)).never();
     });
 
-    it("Should get a all products sucessfully", async () => {
+    it("Should get a all active products sucessfully", async () => {
         // Given
         let product1: IProduct = newProductInserted(newProduct(), "P-001");
         let product2: IProduct = newProductInserted(newProduct(), "P-002");
         let product3: IProduct = newProductInserted(newProduct(), "P-003");
         let product4: IProduct = newProductInserted(newProduct(), "P-004");
-        
+        product4.active = false;
 
         // Prepare
         when(gateway.findAll()).thenResolve([product1, product2, product3, product4]);
@@ -109,8 +109,8 @@ describe("Unit test to cover Product UC.", async () => {
             codes.push(e.code);
         });
 
-        expect(products).to.have.lengthOf(4);
-        expect(codes).to.have.members(['P-001', 'P-002', 'P-003', 'P-004']);
+        expect(products).to.have.lengthOf(3);
+        expect(codes).to.have.members(['P-001', 'P-002', 'P-003']);
         verify(gateway.findAll()).once();
     });
 

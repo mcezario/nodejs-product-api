@@ -1,0 +1,7 @@
+{
+    "code" : "P-001",
+    "name" : "Product 01",
+    "price" : 2.22,
+    "quantity" : 2,
+    "active" : true
+}
