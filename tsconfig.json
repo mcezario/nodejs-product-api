@@ -7,11 +7,12 @@
             "dom"
         ],
         "noImplicitAny": false,
-        "sourceMap": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "moduleResolution": "node",
-        "noUnusedLocals": true
+        "noUnusedLocals": true,
+        "outDir": "dist",
+        "sourceMap": false
     },
     "compileOnSave": false,
     "exclude": [

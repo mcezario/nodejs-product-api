@@ -3,6 +3,9 @@
 .AppleDouble
 .LSOverride
 
+# Dist
+dist
+
 # Logs
 logs
 *.log
