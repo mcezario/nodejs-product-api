@@ -13,6 +13,8 @@ This is a project to learn in depth Node.js and tools/libs related to it.
 - [ ] Integration with redis
 - [ ] Beautify/Centralize the way that the application uses console.log
 
+___
+
 > #### Precondition <br>
 > - Mongodb. This project uses Mongodb as database. Follow above the two easiest ways to get the Mongodb installed:
 >  1. Docker. Run the command: ```docker-compose -f <path>/docker-compose.yml up --build -d```
