@@ -10,6 +10,7 @@ This is a project to learn in depth Node.js and tools/libs related to it.
 - [X] Unit tests using MongoDB in memory
 
 ## TODO <br>
+- [ ] Review bugs from static analysis/lint
 - [ ] Integration with redis
 - [ ] Beautify/Centralize the way that the application uses console.log
 
